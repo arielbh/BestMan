@@ -14,5 +14,10 @@
         <v:GiftsView />
     </DataTemplate>
 
+    <DataTemplate x:Key="ContactGiftEditor">
+        <v:ContactGiftEditor/>
+    </DataTemplate>
+
+
 
 </ResourceDictionary>

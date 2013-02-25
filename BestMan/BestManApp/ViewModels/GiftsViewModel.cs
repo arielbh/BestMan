@@ -38,5 +38,66 @@ namespace BestManApp.ViewModels
                 }
             }
         }
+
+
+        private ContactViewModel _selectedContact;
+
+        public ContactViewModel SelectedContact
+        {
+            get { return _selectedContact; }
+            set
+            {
+                if (value != _selectedContact)
+                {
+                    _selectedContact = value;
+                    OnPropertyChanged(() => SelectedContact);
+                    if (SelectedContact != null)
+                    {
+                        DisplayContactGiftEditor(SelectedContact);
+                    }
+                }
+            }
+        }
+
+        private void DisplayContactGiftEditor(ContactViewModel selectedContact)
+        {
+            CustomMessageBox messageBox = new CustomMessageBox()
+            {
+                ContentTemplate = (DataTemplate)App.Current.Resources["ContactGiftEditor"],
+                Content = selectedContact,
+                LeftButtonContent = "Save",
+                RightButtonContent = "Cancel",
+                IsFullScreen = false
+            };
+
+            messageBox.Dismissed += (s1, e1) =>
+            {
+                switch (e1.Result)
+                {
+                    case CustomMessageBoxResult.LeftButton:
+                        // Do something.
+                        ClearSelection();
+                        break;
+                    case CustomMessageBoxResult.RightButton:
+                        //Reset
+                        ClearSelection();
+                        selectedContact.Gift.Amount = 0;
+                        break;
+                    case CustomMessageBoxResult.None:
+                        ClearSelection();
+                        selectedContact.Gift.Amount = 0;
+                        break;
+                    default:
+                        break;
+                }
+            };
+
+            messageBox.Show();
+        }
+
+        private void ClearSelection()
+        {
+            SelectedContact = null;
+        }
     }
 }

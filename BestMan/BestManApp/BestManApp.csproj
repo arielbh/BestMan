@@ -110,6 +110,7 @@
     <Compile Include="ViewModels\GiftsViewModel.cs" />
     <Compile Include="ViewModels\InvitationsViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\ContactGiftEditor.xaml.cs" />
     <Compile Include="Views\GiftsView.xaml.cs" />
     <Compile Include="Views\InvitationsView.xaml.cs" />
   </ItemGroup>
@@ -127,6 +128,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\StandardTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContactGiftEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
