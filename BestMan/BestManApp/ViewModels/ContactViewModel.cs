@@ -35,5 +35,28 @@ namespace BestManApp.ViewModels
                 }
             }
         }
+
+        private bool _isInvited;
+
+        public bool IsInvited
+        {
+            get { return _isInvited; }
+            set
+            {
+                if (value != _isInvited)
+                {
+                    _isInvited = value;
+                    OnPropertyChanged(() => IsInvited);
+                    OnPropertyChanged(() => IsInvitedVisibility);
+                }
+            }
+        }
+
+
+        public Visibility IsInvitedVisibility
+        {
+            get { return IsInvited ? Visibility.Visible : Visibility.Collapsed; }
+
+        }
     }
 }

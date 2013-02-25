@@ -23,8 +23,8 @@
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding Contact}"/>
+                        <TextBlock Text="Invitation Sent" Visibility="{Binding IsInvitedVisibility}"/>
                     </StackPanel>
-
                 </DataTemplate>
             </toolkit:LongListMultiSelector.ItemTemplate>
         </toolkit:LongListMultiSelector>

@@ -6,6 +6,8 @@ using Microsoft.Phone.UserData;
 using SuiteValue.UI.MVVM;
 using System.Linq;
 using SuiteValue.UI.WP8;
+using ApplicationBarIconButton = SuiteValue.UI.WP8.Controls.ApplicationBarIconButton;
+
 
 namespace BestManApp.ViewModels
 {
@@ -14,6 +16,17 @@ namespace BestManApp.ViewModels
         public InvitationsViewModel()
         {
             Header = "Invite";
+
+            AppbarCommands = new[]
+            {
+                new ApplicationBarIconButton
+                {
+                    Command = SendInviteCommand,
+                    IconUri = new Uri("/Assets/Icons/feature.email.png", UriKind.Relative),
+                    Text = "Send"
+                }
+            };
+
         }
 
 
@@ -46,5 +59,32 @@ namespace BestManApp.ViewModels
                 }
             }
         }
+
+        private DelegateCommand _sendInviteCommand;
+
+        public DelegateCommand SendInviteCommand
+        {
+            get
+            {
+                return _sendInviteCommand ?? (_sendInviteCommand = new DelegateCommand(
+                                                     () =>
+                                                     {
+                                                         var list = Contacts.SelectMany(g => g)
+                                                                            .Where(c => c.IsSelected)
+                                                                            .ToList();
+
+
+                                                         foreach (
+                                                             var conact in list)
+                                                         {
+                                                             conact.IsInvited = true;
+                                                         }
+                                                         PhoneApplicationService.Current.State["Contacts"] = list;
+
+                                                     }));
+            }
+        }
+
+
     }
 }
