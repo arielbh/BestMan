@@ -6,6 +6,11 @@ namespace BestManApp.ViewModels
 {
     public class ContactViewModel : ViewModelBase
     {
+        public ContactViewModel()
+        {
+            Gift = new Gift();
+            
+        }
         private Contact _contact;
 
         public Contact Contact
@@ -57,6 +62,21 @@ namespace BestManApp.ViewModels
         {
             get { return IsInvited ? Visibility.Visible : Visibility.Collapsed; }
 
+        }
+
+        private Gift _gift;
+
+        public Gift Gift
+        {
+            get { return _gift; }
+            set
+            {
+                if (value != _gift)
+                {
+                    _gift = value;
+                    OnPropertyChanged(() => Gift);
+                }
+            }
         }
     }
 }

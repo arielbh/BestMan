@@ -12,6 +12,18 @@
     d:DesignHeight="480" d:DesignWidth="480" >
     
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
-        <TextBlock Text="Page 2"/>
+        <ex:LongListSelector ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedContact, Mode=TwoWay}">
+            <ex:LongListSelector.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Contact}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Amount: "/>
+                            <TextBlock Text="{Binding Gift.Amount}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ex:LongListSelector.ItemTemplate>
+        </ex:LongListSelector>
     </Grid>
 </UserControl>

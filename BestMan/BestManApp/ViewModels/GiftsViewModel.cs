@@ -13,5 +13,30 @@ namespace BestManApp.ViewModels
         {
             Header = "Gifts";
         }
+
+
+        public override void Activate()
+        {
+            base.Activate();
+            if (PhoneApplicationService.Current.State.ContainsKey("Contacts"))
+            {
+                Contacts = PhoneApplicationService.Current.State["Contacts"] as List<ContactViewModel>;
+            }
+        }
+
+        private List<ContactViewModel> _contacts;
+
+        public List<ContactViewModel> Contacts
+        {
+            get { return _contacts; }
+            set
+            {
+                if (value != _contacts)
+                {
+                    _contacts = value;
+                    OnPropertyChanged(() => Contacts);
+                }
+            }
+        }
     }
 }
