@@ -106,6 +106,7 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\ContactService.cs" />
+    <Compile Include="ViewModels\ContactViewModel.cs" />
     <Compile Include="ViewModels\GiftsViewModel.cs" />
     <Compile Include="ViewModels\InvitationsViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

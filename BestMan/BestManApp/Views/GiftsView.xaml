@@ -13,5 +13,5 @@
     
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
         <TextBlock Text="Page 2"/>
-s    </Grid>
+    </Grid>
 </UserControl>

@@ -17,5 +17,17 @@ namespace BestManApp.Views
         {
             InitializeComponent();
         }
+
+        private void LongListMultiSelector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach (ContactViewModel vm in e.AddedItems)
+            {
+                vm.IsSelected = true;
+            }
+            foreach (ContactViewModel vm in e.RemovedItems)
+            {
+                vm.IsSelected = false;
+            }
+        }
     }
 }

@@ -9,8 +9,24 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
-    
+
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
-      <TextBlock Text="Page 1"/>
+        <toolkit:LongListMultiSelector 
+                        ItemsSource="{Binding Contacts}"
+                        IsGroupingEnabled="True"
+                        GroupHeaderTemplate="{StaticResource ContactsGroupHeaderTemplate}"
+                        HideEmptyGroups="True"
+                        EnforceIsSelectionEnabled="True"
+                        SelectionChanged="LongListMultiSelector_OnSelectionChanged"
+                    >
+            <toolkit:LongListMultiSelector.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Contact}"/>
+                    </StackPanel>
+
+                </DataTemplate>
+            </toolkit:LongListMultiSelector.ItemTemplate>
+        </toolkit:LongListMultiSelector>
     </Grid>
 </UserControl>
