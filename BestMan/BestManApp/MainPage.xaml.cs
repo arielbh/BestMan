@@ -5,6 +5,7 @@ using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using BestManApp.ViewModels;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using BestManApp.Resources;
@@ -17,6 +18,7 @@ namespace BestManApp
         public MainPage()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();

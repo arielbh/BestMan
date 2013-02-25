@@ -4,8 +4,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:v="clr-namespace:BestManApp.Views">
 
-   
 
+    <DataTemplate x:Key="InvitationsViewModel">
+        <v:InvitationsView />
+    </DataTemplate>
+
+
+    <DataTemplate x:Key="GiftsViewModel">
+        <v:GiftsView />
+    </DataTemplate>
 
 
 </ResourceDictionary>
