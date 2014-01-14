@@ -21,6 +21,7 @@ namespace BestManApp.ViewModels
             {
                 new ApplicationBarIconButton
                 {
+                    IsEnabled = false,
                     Command = SendInviteCommand,
                     IconUri = new Uri("/Assets/Icons/feature.email.png", UriKind.Relative),
                     Text = "Send"
